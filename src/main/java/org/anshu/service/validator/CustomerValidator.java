@@ -13,11 +13,18 @@ import org.anshu.entity.Customer;
 
 
 /**
- * @author C37283
- *
+ * Validator class which is used to validte the input parameters of customer
+ * @author Anshu Kumar
+ * @version : 1.0.0
  */
+
 public class CustomerValidator {
 
+	/**
+	 * This method validates if the customer input is valid or not
+	 * @param customer input customer details
+	 * @return true if customer data is valid else will return false
+	 */
 	public static boolean validateCustomerData(Customer customer) {
 		boolean isValidCustomerData = true;
 		boolean isValidEmailAddress = isValidEmailAddress(customer.getEmailId());
@@ -37,6 +44,11 @@ public class CustomerValidator {
 	}
 	
 	
+	/**
+	 * This method validates if the given email ID is valid or not
+	 * @param email input email ID
+	 * @return true if email is valid else will return false
+	 */
 	public static boolean isValidEmailAddress(String email) {
 		boolean result = true;
 		try {

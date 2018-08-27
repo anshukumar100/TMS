@@ -5,7 +5,8 @@ package org.anshu.commons;
 
 /**
  * String utility class which contains all the generic methods related to String datatype
- * @author C37283
+ * @author Anshu Kumar
+ * @version : 1.0.0
  *
  */
 public class StringUtils {

@@ -1,5 +1,12 @@
 package org.anshu.dao;
 
+/**
+ * 
+ * This is wrapper exception class to throw all the dao layer exceptions 
+ * 
+ * @author Anshu Kumar
+ *
+ */
 public class TMSDaoException extends Exception{
 	
 

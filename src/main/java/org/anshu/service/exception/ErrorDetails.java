@@ -12,6 +12,17 @@ public class ErrorDetails  extends Error{
 	private String message;
 	private String details;
 
+	/**
+	 * defaut constrictor the the class
+	 */
+	public ErrorDetails() {};
+	
+	/**
+	 * constructor to create error object which needs to be send to UI
+	 * @param timestamp data at which the error has occured
+	 * @param message the error message
+	 * @param details the details of the error
+	 */
 	public ErrorDetails(Date timestamp, String message, String details) {
 		super();
 		this.timestamp = timestamp;

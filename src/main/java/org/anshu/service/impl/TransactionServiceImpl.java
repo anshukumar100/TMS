@@ -2,9 +2,7 @@ package org.anshu.service.impl;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
-import org.anshu.commons.StringUtils;
 import org.anshu.dao.AccountDao;
 import org.anshu.dao.TransactionDao;
 import org.anshu.entity.Account;
@@ -14,7 +12,6 @@ import org.anshu.service.exception.ErrorDetails;
 import org.anshu.service.exception.ResourceNotFoundException;
 import org.anshu.service.exception.TransactionServiceException;
 import org.anshu.service.validator.TransactionValidator;
-import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -95,22 +92,6 @@ public class TransactionServiceImpl implements TransactionService{
 		transactionDao.save(transactionObj);
 	}
 
-	@Override
-	@Transactional(readOnly = true, propagation = Propagation.REQUIRED, rollbackFor = TransactionServiceException.class)
-	public List<Transaction> getTransaction(String accountNumber) throws TransactionServiceException, ResourceNotFoundException {
-		try {
-			Account account = transactionValidator.validateAccount(accountNumber);
-			if((!StringUtils.isValidString(accountNumber)) ||  account == null) {
-				ErrorDetails errorDetails = new ErrorDetails(new Date(), "Validation Failed","Account does not exist");
-				throw new ResourceNotFoundException(errorDetails.getDetails());
-			}
-			
-			return transactionDao.findBySenderAccountAccountId(account.getAccountId());
-		}catch(HibernateException e) {
-			ErrorDetails errorDetails = new ErrorDetails(new Date(), "Error while fetching transaction details of an account","Error while transaction details of an account");
-			throw new TransactionServiceException(errorDetails);
-		}
-	}
 }
 
 

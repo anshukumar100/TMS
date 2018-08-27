@@ -3,8 +3,6 @@
  */
 package org.anshu.service;
 
-import java.util.List;
-
 import org.anshu.entity.Transaction;
 import org.anshu.service.exception.ResourceNotFoundException;
 import org.anshu.service.exception.TransactionServiceException;
@@ -25,14 +23,6 @@ public interface TransactionService {
 	 * @throws ResourceNotFoundException resource not found exception
 	 */
 	public void createTransaction(Transaction transaction) throws TransactionServiceException,ResourceNotFoundException;
-
-	/**
-	 * This method id used find all the transactions of a given customer ID
-	 * @param accountNumber input account number whose transactions needs to be fetched 
-	 * @return list of transactions performed by the account if exist or else null
-	 * @throws TransactionServiceException dao layer exception
-	 * @throws ResourceNotFoundException no data found exception
-	 */
-	public List<Transaction> getTransaction(String accountNumber)throws TransactionServiceException,ResourceNotFoundException;
+	
 
 }
